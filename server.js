@@ -15,7 +15,15 @@ app.listen(4000, () => {
     console.log(`Server started`)
 })
 
-app.post('/register', function (req, res) {
+function handleLogin(req, res) {
+  console.log(req.body)
+  const registeredUser = {
+      email: req.body.email,
+      pass: req.body.pass,}
+      
+  res.json({result:"Success"}) 
+}
+function handleRegister (req, res) {
   console.log(req.body)
   const newUser = {
       name: req.body.name,
@@ -23,14 +31,7 @@ app.post('/register', function (req, res) {
       password: req.body.pass,
   };
   res.json({result:"Success"})
-});
+}
+app.post('/register', handleRegister)
 
-app.put('/login', function (req, res) {
-  console.log(req.body)
-  const registeredUser = {
-      email: req.body.email,
-      pass: req.body.pass,}
-      
-  res.json({result:"Success"}) 
-});
-
+app.put('/login', handleLogin) 
