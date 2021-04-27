@@ -33,5 +33,10 @@ function handleRegister (req, res) {
   res.json({result:"Success"})
 }
 app.post('/register', handleRegister)
+app.get("/register", (req,res) =>{
+  res.send()
+
+  }
+)
 
 app.put('/login', handleLogin) 
